@@ -1,3 +1,4 @@
+from model.proekt import Proekt
 
 
 class ProektHelper:
@@ -29,6 +30,23 @@ class ProektHelper:
         wd.get("http://localhost/mantisbt-2.25.2/mantisbt-2.25.2/manage_proj_delete.php")
         wd.find_element_by_xpath("//div[@id='main-container']/div[2]/div[2]/div/div/div[2]/form/input[4]").click()
         wd.get("http://localhost/mantisbt-2.25.2/mantisbt-2.25.2/manage_proj_page.php")
+
+    def count(self):
+        wd = self.app.wd
+        wd.get("http://localhost/mantisbt-2.25.2/mantisbt-2.25.2/manage_proj_page.php")
+        return len(wd.find_elements_by_xpath(u"//a[contains(text(),'Управление проектами')]"))
+
+    def get_proekt_list(self):
+        wd = self.app.wd
+        wd.get("http://localhost/mantisbt-2.25.2/mantisbt-2.25.2/manage_proj_page.php")
+        list = []
+        for element in wd.find_elements_by_xpath(u"//a[contains(text(),'Управление проектами')]"):
+            text = element.text
+            list.append(Proekt(name=text))
+        return list
+
+
+
 
 
 
