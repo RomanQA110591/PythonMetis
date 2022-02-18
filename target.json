@@ -1,4 +1,21 @@
 {
-    "base_url": "http://localhost/mantisbt-2.25.2/mantisbt-2.25.2/login_page.php"
-}
+  "web": {
+    "base_url": "http://localhost/mantisbt-1.2.20/mantisbt-1.2.20/"
 
+  },
+  "webadmin": {
+  "username": "administrator",
+  "password": "root"
+  },
+  "ftp": {
+    "host": "localhost",
+    "username": "mantis",
+    "password": "mantis"
+  },
+  "james": {
+    "host": "localhost",
+    "port": 4555,
+    "username": "root",
+    "password": "root"
+  }
+}
